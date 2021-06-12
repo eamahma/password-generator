@@ -19,15 +19,33 @@ function generatePassword() {
     var numChar;
     var lowCase;
     var upCase;
-    var numeric;
+    var numDigit;
     var speChar;
+    var passArray ="";
 
+    // function to get number of characters in password
     numChar = numchar();
+
+    // function to check if lower case be used in password
     lowCase = lowcase();
-    console.log(lowCase);
- 
-    result = numChar;
-    return result;
+    if (lowCase) {
+        passArray = passArray.concat(lower_case);
+    }
+
+    // function to check if upper case be used in password
+    upCase = upcase();
+    if (upCase) {
+        passArray = passArray.concat(upper_case);
+    }
+
+    // function to check if numbers be used in password
+    numDigit = numdigit();
+    if (upCase) {
+        passArray = passArray.concat(num_digits);
+    }
+
+
+    return passArray;
 }
 
 function numchar() {
@@ -57,7 +75,6 @@ function lowcase() {
         if (result === "y") {
             flag = true;
             return true;
-            console.log(result);
         } else if (result === "n"){
             flag = true;
             return false;
@@ -68,6 +85,43 @@ function lowcase() {
     }
 }
 
+function upcase() {  
+    var flag = false;
+    var result;
+    
+    while (!flag) {
+        var result = prompt("Use upper case (enter y or n): ");
+        if (result === "y") {
+            flag = true;
+            return true;
+        } else if (result === "n"){
+            flag = true;
+            return false;
+        } else {
+            flag = false;
+            alert("Enter y or n");
+        }
+    }
+}
+
+function numdigit() {  
+    var flag = false;
+    var result;
+    
+    while (!flag) {
+        var result = prompt("Use numbers (enter y or n): ");
+        if (result === "y") {
+            flag = true;
+            return true;
+        } else if (result === "n"){
+            flag = true;
+            return false;
+        } else {
+            flag = false;
+            alert("Enter y or n");
+        }
+    }
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
