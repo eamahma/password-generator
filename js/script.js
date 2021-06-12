@@ -31,29 +31,40 @@ function generatePassword() {
 }
 
 function numchar() {
-    var result = 0;
+    var flag = false;
+    var result;
     
-    console.log("numChar");
-    result = prompt("Enter number of characters (between 8 and 128): ");
-    if (result < 8 || result > 128) {
-        alert("Enter a number between 8 and 128");
-    } else {
-        return result;
+    while (!flag) {
+        result = prompt("Enter number of characters (between 8 and 128): ");
+        if (isNaN(result)) {
+            alert(result + " is not a number. Enter a number between 8 and 128")
+        } else if (result < 8 || result > 128) { 
+            alert("Enter a number between 8 and 128");
+        } else {
+            flag = true;
+        }
     }
+
+    return result;
 }
 
-function lowcase() {    
-    var result = prompt("Use lower case (enter y or n): ");
-    console.log(result);
-    if (result === "y") {
-        return true;
-        console.log(result);
-    } else if (result === "n"){
-        return false;
-        console.log(result);
-    } else {
-        alert("Enter y or n");
-        return;
+function lowcase() {  
+    var flag = false;
+    var result;
+    
+    while (!flag) {
+        var result = prompt("Use lower case (enter y or n): ");
+        if (result === "y") {
+            flag = true;
+            return true;
+            console.log(result);
+        } else if (result === "n"){
+            flag = true;
+            return false;
+        } else {
+            flag = false;
+            alert("Enter y or n");
+        }
     }
 }
 
