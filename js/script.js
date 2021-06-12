@@ -20,30 +20,35 @@ function generatePassword() {
     var lowCase;
     var upCase;
     var numDigit;
-    var speChar;
+    var specialChar;
     var passArray ="";
 
     // function to get number of characters in password
     numChar = numchar();
 
-    // function to check if lower case be used in password
+    // function to check if lower case to be used in password
     lowCase = lowcase();
     if (lowCase) {
         passArray = passArray.concat(lower_case);
     }
 
-    // function to check if upper case be used in password
+    // function to check if upper case to be used in password
     upCase = upcase();
     if (upCase) {
         passArray = passArray.concat(upper_case);
     }
 
-    // function to check if numbers be used in password
+    // function to check if numbers to be used in password
     numDigit = numdigit();
-    if (upCase) {
+    if (numDigit) {
         passArray = passArray.concat(num_digits);
     }
 
+    // function to check if special characters to be used in password
+    specialChar = specialchar();
+    if (specialChar) {
+        passArray = passArray.concat(special_char);
+    }
 
     return passArray;
 }
@@ -80,7 +85,7 @@ function lowcase() {
             return false;
         } else {
             flag = false;
-            alert("Enter y or n");
+            alert("Use lower case (enter y or n):");
         }
     }
 }
@@ -99,7 +104,7 @@ function upcase() {
             return false;
         } else {
             flag = false;
-            alert("Enter y or n");
+            alert("Use upper case (enter y or n):");
         }
     }
 }
@@ -118,7 +123,26 @@ function numdigit() {
             return false;
         } else {
             flag = false;
-            alert("Enter y or n");
+            alert("Use numbers (enter y or n): ");
+        }
+    }
+}
+
+function specialchar() {  
+    var flag = false;
+    var result;
+    
+    while (!flag) {
+        var result = prompt("Use special characters (enter y or n): ");
+        if (result === "y") {
+            flag = true;
+            return true;
+        } else if (result === "n"){
+            flag = true;
+            return false;
+        } else {
+            flag = false;
+            alert("Use special characters (enter y or n): ");
         }
     }
 }
