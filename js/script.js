@@ -31,25 +31,25 @@ function generatePassword() {
     // console.log(typeof(numChar));
 
     // function to check if lower case to be used in password
-    lowCase = lowcase();
+    lowCase = confirm("Use lower case?");
     if (lowCase) {
-        passArray = passArray.concat(lower_case);
+            passArray = passArray.concat(lower_case);
     }
 
     // function to check if upper case to be used in password
-    upCase = upcase();
+    upCase = confirm("Use upper case?");
     if (upCase) {
         passArray = passArray.concat(upper_case);
     }
 
     // function to check if numbers to be used in password
-    numDigit = numdigit();
+    numDigit = confirm("Use numbers case?");
     if (numDigit) {
         passArray = passArray.concat(num_digits);
     }
 
     // function to check if special characters to be used in password
-    specialChar = specialchar();
+    specialChar = confirm("Use special character?");
     if (specialChar) {
         passArray = passArray.concat(special_char);
     }
@@ -85,82 +85,6 @@ function numchar() {
     }
 
     return Number(result);
-}
-
-function lowcase() {  
-    var flag = false;
-    var result;
-    
-    while (!flag) {
-        var result = prompt("Use lower case (enter y or n): ");
-        if (result === "y") {
-            flag = true;
-            return true;
-        } else if (result === "n"){
-            flag = true;
-            return false;
-        } else {
-            flag = false;
-            alert("Use lower case (enter y or n):");
-        }
-    }
-}
-
-function upcase() {  
-    var flag = false;
-    var result;
-    
-    while (!flag) {
-        var result = prompt("Use upper case (enter y or n): ");
-        if (result === "y") {
-            flag = true;
-            return true;
-        } else if (result === "n"){
-            flag = true;
-            return false;
-        } else {
-            flag = false;
-            alert("Use upper case (enter y or n):");
-        }
-    }
-}
-
-function numdigit() {  
-    var flag = false;
-    var result;
-    
-    while (!flag) {
-        var result = prompt("Use numbers (enter y or n): ");
-        if (result === "y") {
-            flag = true;
-            return true;
-        } else if (result === "n"){
-            flag = true;
-            return false;
-        } else {
-            flag = false;
-            alert("Use numbers (enter y or n): ");
-        }
-    }
-}
-
-function specialchar() {  
-    var flag = false;
-    var result;
-    
-    while (!flag) {
-        var result = prompt("Use special characters (enter y or n): ");
-        if (result === "y") {
-            flag = true;
-            return true;
-        } else if (result === "n"){
-            flag = true;
-            return false;
-        } else {
-            flag = false;
-            alert("Use special characters (enter y or n): ");
-        }
-    }
 }
 
 // Add event listener to generate button
