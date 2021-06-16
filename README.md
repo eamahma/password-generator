@@ -28,10 +28,10 @@ WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
 ## Link to web page
-[Portfolio](https://eamahma.github.io/password-generator/)
+[Password Generator](https://eamahma.github.io/password-generator/)
 
 ## Link to Github repository
-[Github page for Portfolio](https://github.com/eamahma/password-generator)
+[Github page for Password Generator](https://github.com/eamahma/password-generator)
 
 
 ## Description
